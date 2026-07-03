@@ -22,7 +22,7 @@ export class RedisManager {
     }
 
     //TODO: add type here for engine message 
-     public sendAndAwait(message: PingMessage): Promise<any> {
+     public sendAndAwait(message: Omit<PingMessage, "id">): Promise<any> {
         return new Promise((resolve, reject) => {
             const id = this.getRandomClientId();
             const channel = `response:${id}`;
